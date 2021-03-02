@@ -1,0 +1,146 @@
+?3d1S/R-K+T*g)V(S62
+
+# clue 1 dari for pertama di blueming
+ini i :  1 ini j :  2
+ini i :  1 ini j :  3
+ini i :  1 ini j :  4
+ini i :  1 ini j :  5
+ini i :  1 ini j :  6
+ini i :  1 ini j :  7
+ini i :  1 ini j :  8
+ini i :  1 ini j :  9
+ini i :  1 ini j :  10
+ini i :  1 ini j :  11
+ini i :  1 ini j :  12
+ini i :  1 ini j :  13
+ini i :  1 ini j :  14
+ini i :  1 ini j :  15
+ini i :  1 ini j :  16
+ini i :  1 ini j :  17
+ini i :  1 ini j :  18
+ini i :  1 ini j :  19
+ini i :  2 ini j :  3
+ini i :  2 ini j :  5
+ini i :  2 ini j :  7
+ini i :  2 ini j :  9
+ini i :  2 ini j :  11
+ini i :  2 ini j :  13
+ini i :  2 ini j :  15
+ini i :  2 ini j :  17
+ini i :  2 ini j :  19
+ini i :  3 ini j :  4
+ini i :  3 ini j :  5
+ini i :  3 ini j :  7
+ini i :  3 ini j :  8
+ini i :  3 ini j :  10
+ini i :  3 ini j :  11
+ini i :  3 ini j :  13
+ini i :  3 ini j :  14
+ini i :  3 ini j :  16
+ini i :  3 ini j :  17
+ini i :  3 ini j :  19
+ini i :  4 ini j :  5
+ini i :  4 ini j :  7
+ini i :  4 ini j :  9
+ini i :  4 ini j :  11
+ini i :  4 ini j :  13
+ini i :  4 ini j :  15
+ini i :  4 ini j :  17
+ini i :  4 ini j :  19
+ini i :  5 ini j :  6
+ini i :  5 ini j :  7
+ini i :  5 ini j :  8
+ini i :  5 ini j :  9
+ini i :  5 ini j :  11
+ini i :  5 ini j :  12
+ini i :  5 ini j :  13
+ini i :  5 ini j :  14
+ini i :  5 ini j :  16
+ini i :  5 ini j :  17
+ini i :  5 ini j :  18
+ini i :  5 ini j :  19
+ini i :  6 ini j :  7
+ini i :  6 ini j :  11
+ini i :  6 ini j :  13
+ini i :  6 ini j :  17
+ini i :  6 ini j :  19
+ini i :  7 ini j :  8
+ini i :  7 ini j :  9
+ini i :  7 ini j :  10
+ini i :  7 ini j :  11
+ini i :  7 ini j :  12
+ini i :  7 ini j :  13
+ini i :  7 ini j :  15
+ini i :  7 ini j :  16
+ini i :  7 ini j :  17
+ini i :  7 ini j :  18
+ini i :  7 ini j :  19
+ini i :  8 ini j :  9
+ini i :  8 ini j :  11
+ini i :  8 ini j :  13
+ini i :  8 ini j :  15
+ini i :  8 ini j :  17
+ini i :  8 ini j :  19
+ini i :  9 ini j :  10
+ini i :  9 ini j :  11
+ini i :  9 ini j :  13
+ini i :  9 ini j :  14
+ini i :  9 ini j :  16
+ini i :  9 ini j :  17
+ini i :  9 ini j :  19
+ini i :  10 ini j :  11
+ini i :  10 ini j :  13
+ini i :  10 ini j :  17
+ini i :  10 ini j :  19
+ini i :  11 ini j :  12
+ini i :  11 ini j :  13
+ini i :  11 ini j :  14
+ini i :  11 ini j :  15
+ini i :  11 ini j :  16
+ini i :  11 ini j :  17
+ini i :  11 ini j :  18
+ini i :  11 ini j :  19
+ini i :  12 ini j :  13
+ini i :  12 ini j :  17
+ini i :  12 ini j :  19
+ini i :  13 ini j :  14
+ini i :  13 ini j :  15
+ini i :  13 ini j :  16
+ini i :  13 ini j :  17
+ini i :  13 ini j :  18
+ini i :  13 ini j :  19
+ini i :  14 ini j :  15
+ini i :  14 ini j :  17
+ini i :  14 ini j :  19
+ini i :  15 ini j :  16
+ini i :  15 ini j :  17
+ini i :  15 ini j :  19
+ini i :  16 ini j :  17
+ini i :  16 ini j :  19
+ini i :  17 ini j :  18
+ini i :  17 ini j :  19
+ini i :  18 ini j :  19
+
+total isi kelasnya didalam list 119
+
+# integer char dari encrp
+63
+51
+100
+49
+83
+47
+82
+45
+75
+43
+84
+42
+103
+41
+86
+40
+83
+54
+50
+

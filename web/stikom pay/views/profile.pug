@@ -1,0 +1,49 @@
+extends layout
+
+block content
+	.row.mb-4
+		.col-lg-8.offset-lg-2
+			.card
+				.card-body
+					h3 #{user.name} &nbsp;
+						a.btn.btn-outline-dark.btn-sm(href='/gantinama') Ganti Nama
+					h5.font-weight-bold.text-warning Coins: #{user.coins}
+					hr
+					.d-flex.justify-content-between.align-items-center
+						h5 Harga Flag: 1000 Coins
+						a.btn.btn-success(href='/buyflag') Beli Flag
+			.card.mt-4
+				.card-body
+					h5 Kirim Coin
+					hr
+					form#form(action='/sendcoins' method='POST')
+						.form-group
+							input(type='hidden' id='token' name='token' value=user.token)
+						.form-group
+							label(for='target') Username Penerima
+							input.form-control(type='text' name='target' id='target' placeholder='Cth: asephemker1337' required)
+						.form-group
+							label(for='coins') Jumlah Coin
+							input.form-control(type='number' id='coins' name='coins' placeholder='max: 1000' value="1" required)
+						button#submit.btn.btn-primary(type='submit') Kirim Coin
+			.card.mt-4
+				.card-body
+					h5 Riwayat Transaksi
+					if transactions.length > 0
+						table.table
+							thead
+								tr
+									th(scope='col') Dari
+									th(scope='col') Kepada
+									th(scope='col') Jumlah
+									th(scope='col') Tanggal
+							tbody
+								each transaction in transactions
+									tr
+										// bjirr
+										td !{ transaction.from.name }
+										td #{ transaction.to.username }
+										td #{ transaction.amount }
+										td #{ transaction.date.toLocaleString('id-ID', { timezone: 'Asia/Makassar' }) }
+					else
+						p.text-center.text-danger Tidak ada transaksi yang pernah dilakukan.

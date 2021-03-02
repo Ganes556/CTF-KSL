@@ -1,0 +1,50 @@
+﻿<version>3.3</version>
+<services>
+  <blog_app>
+    <build>
+      <context>.</context>
+    </build>
+    <volumes>.:/usr/src/app</volumes>
+    <depends_on>blog_db</depends_on>
+    <working_dir>/usr/src/app</working_dir>
+    <environment>
+      <SERVICE_NAME>blog-app</SERVICE_NAME>
+      <DB_CONNECTION>pgsql</DB_CONNECTION>
+      <DB_DRIVER>psql</DB_DRIVER>
+      <DB_HOST>blog_db</DB_HOST>
+      <DB_PORT>5432</DB_PORT>
+    </environment>
+    <networks>app_network</networks>
+  </blog_app>
+  <blog_nginx>
+    <build>
+      <context>./docker-nginx/.</context>
+    </build>
+    <volumes>./public:/usr/src/app/public</volumes>
+    <environment>
+      <NGINX_FPM_HOST>blog_app</NGINX_FPM_HOST>
+      <NGINX_ROOT>/usr/src/app/public</NGINX_ROOT>
+    </environment>
+    <ports>3022:80</ports>
+    <depends_on>blog_app</depends_on>
+    <networks>app_network</networks>
+  </blog_nginx>
+  <blog_db>
+    <image>postgres</image>
+    <restart>always</restart>
+    <environment>
+      <POSTGRES_DATABASE>REDACTED</POSTGRES_DATABASE>
+      <POSTGRES_USER>REDACTED</POSTGRES_USER>
+      <POSTGRES_PASSWORD>REDACTED</POSTGRES_PASSWORD>
+    </environment>
+    <ports>3023:5432</ports>
+    <volumes>./dump:/docker-entrypoint-initdb.d</volumes>
+    <volumes>redacted:/redacted</volumes>
+    <networks>app_network</networks>
+  </blog_db>
+</services>
+<networks>
+  <app_network>
+    <driver>bridge</driver>
+  </app_network>
+</networks>

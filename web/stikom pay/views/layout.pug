@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width initial-scale=1 shrink-to-fit=no")
+		title #{title || 'Stikom Pay'}
+
+		link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css")
+		script(src="/bower_components/jquery/dist/jquery.min.js")
+		script(defer src="/bower_components/bootstrap/dist/js/bootstrap.bundle.min.js")
+	body
+		nav.navbar.navbar-expand-sm.navbar-dark.bg-dark
+			.container
+				a.navbar-brand.font-weight-bold(href='/') Stikom Pay
+				button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+					span.navbar-toggler-icon
+				#navbarNav.collapse.navbar-collapse
+					ul.navbar-nav.ml-auto
+						if isAuthenticated
+							li.nav-item
+								a.nav-link(href='/') Crazy Rich
+							li.nav-item
+								a.nav-link(href='/profile') Profile
+							li.nav-item
+								a.nav-link(href='/logout') Logout
+						else
+							li.nav-item
+								a.nav-link(href='/login') Login
+							li.nav-item
+								a.nav-link(href='/register') Register
+		.container.pt-3
+			.row
+				.col-lg-8.offset-lg-2
+					if errors
+						each error in errors
+							.alert.alert-danger(role="alert") #{error}
+					if success
+						each msg in success
+							.alert.alert-success(role="alert") #{msg}
+			block content
+

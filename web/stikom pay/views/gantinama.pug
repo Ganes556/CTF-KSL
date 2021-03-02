@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	.row
+		.col-lg-6.offset-lg-3
+			h2.text-center Ganti Nama
+			form(action="/gantinama" method="POST")
+				.form-group
+					label(for='name') New Name
+					input#username.form-control(type='text' name='name' value=user.name required)
+				.form-group
+					button#submit.btn.btn-primary(type='submit') Update

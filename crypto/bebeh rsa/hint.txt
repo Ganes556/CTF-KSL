@@ -1,0 +1,7 @@
+Bebeeeeeeh!!!1!
+d = reverse dari e
+jadi bsa pke module crypto.util blabalbal import inverse
+pke python2 je
+Apa yang terjadi jika salah satu faktor digunakan di lebih dari satu modulus?
+
+STIKOMFEST{b3b3H_RSA_y4_ez_pz_L4H!!1!}

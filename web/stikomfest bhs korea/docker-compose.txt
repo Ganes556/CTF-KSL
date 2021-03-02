@@ -1,0 +1,52 @@
+version: "3.3"
+services:
+  blog_app:
+    build:
+      context: . # The path of the Dockerfile
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - blog_db
+    working_dir: /usr/src/app
+    environment:
+      SERVICE_NAME: blog-app
+      DB_CONNECTION: pgsql
+      DB_DRIVER: psql
+      DB_HOST: blog_db
+      DB_PORT: 5432
+    networks:
+      - app_network
+
+  blog_nginx:
+    build:
+      context: ./docker-nginx/. # The path of the Dockerfile
+    volumes:
+      - "./public:/usr/src/app/public"
+    environment:
+      NGINX_FPM_HOST: blog_app
+      NGINX_ROOT: /usr/src/app/public
+    ports:
+      - "3022:80"
+    depends_on:
+      - blog_app
+    networks:
+      - app_network
+
+  blog_db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DATABASE: REDACTED
+      POSTGRES_USER: REDACTED
+      POSTGRES_PASSWORD: REDACTED
+    ports:
+      - "3023:5432"
+    volumes:
+      - "./dump:/docker-entrypoint-initdb.d"
+      - "redacted:/redacted"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
