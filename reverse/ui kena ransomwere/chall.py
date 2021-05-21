@@ -13,8 +13,10 @@ flag = "Dudale``oWjYQKOKJAZYDR]NWYJ kucÜiÜ$ÐÒÜ:uÜ	ÞyÞ
 # for i, j in enumerate(flag)]) (x)) ([x for x in range(len(flag))])])
 
 # yang lebih besar angkanya itu yang duluan di operasikan didalam xor
-b = ''.join([chr(x) for x in (lambda x: (lambda p: [((i^ord(j)) + p[i] & 0xff)
+
+b = ''.join([chr(x) for x in (lambda x: (lambda p: [ (( i^ord(j) ) + p[i] & 0xff)
 for i, j in enumerate(flag)]) (x)) ([x for x in range(len(flag))])])
+
 print(b)
 
 

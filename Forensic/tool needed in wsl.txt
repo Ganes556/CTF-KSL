@@ -1,0 +1,9 @@
+install eog
+java --> for opened jar file
+exiftool
+zsteg
+binwalk
+base64
+steghide
+foremost
+wrishark

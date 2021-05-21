@@ -1,24 +1,30 @@
 from PIL import Image
 
-im = Image.open('ubuntu.png', 'r')
-data = im.getdata()
+# im = Image.open('ubuntu.png')
+# print(im.load())
 
-im2 = Image.open('ubuntu_embedded.png','r')
-data2 = im2.getdata()
+secret = open("ubuntu_embedded.png","rb").read().hex()
+message = [secret[i:i+2] for i in range(0,len(secret),2)]
+print(message)
 
-isi = [x for i in data for x in i]
-isi2 = [y for i in data for y in i]
+# data = im.getdata()
 
-double = zip(isi,isi2)
-i = 1
-x = ""
-for a,b in double:
-    x+= str((a-b)%256)
-    if i == 1000:
-        break
-    i+=1
+# im2 = Image.open('ubuntu_embedded.png','r')
+# data2 = im2.getdata()
 
-print(x)
+# isi = [x for i in data for x in i]
+# isi2 = [y for i in data for y in i]
+
+# double = zip(isi,isi2)
+# i = 1
+# x = ""
+# for a,b in double:
+#     x+= str((a-b)%256)
+#     if i == 1000:
+#         break
+#     i+=1
+
+# print(x)
 
 
 

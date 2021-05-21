@@ -1,0 +1,7 @@
+Dalam kriptografi, XOR sederhana beroperasi sebagai berikut
+
+A ^ B = C
+A ^ C = B
+B ^ C = A
+
+Dibawah ada implementasi XOR menggunakan python. Bisa kah kalian dapetin flagnya??

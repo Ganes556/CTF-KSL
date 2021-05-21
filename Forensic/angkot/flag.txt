@@ -1,0 +1,9 @@
+9 November 2020, 15:21PM
+
+Lagi buat soal CTF nih, kategori forensic....
+Ku bingung mau bikin soal yang kayak gimana, jadinya bikin soal kayak gksk :(
+Terus, flagnya apaan ya? Ah, ini aja deh
+
+STIKOMFEST{p1x_by_PIX_s4y4_L14t_1_1}
+
+*sedang mencoba buat soal katod, apadaya skill tydack mumpuni :((

